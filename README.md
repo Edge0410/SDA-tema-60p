@@ -1,0 +1,7 @@
+# Documentatia problemelor de la SDA – Sandu Eduard Alexandru Grupa 334
+
+1.	Knumere – 20 puncte
+In implementare am folosit un deque ce are ca scop stocarea diferentelor dintre 2 elemente consecutive. Astfel, parcurgand fiecare diferenta de la dreapta la stanga, pe masura ce iteram peste o diferenta curenta, eliminam din deque diferentele anterioare mai mici sau egale cu diferenta curenta. Mai apoi, adaugam diferenta curenta si verificam daca este diferenta minima in cazul in care nu este prea devreme (adica daca mai avem suficiente diferente mai mici decat cea mai mare diferenta actuala).
+
+2.	Find median from data stream – 40 puncte
+In implementare am folosit un minHeap si un maxHeap pentru a imparti cele 2 jumatati ale vectorului crescator astfel: prima jumatate este stocata in maxHeap iar a doua jumatate in minHeap. Acest lucru face ca primul element din fiecare heap sa returneze de fapt elementul de la stanga jumatatii si elementul de la dreapta jumatatii. Daca vectorul este impar atunci maxHeap va avea un element in plus fata de minHeap care va fi exact mijlocul vectorului. Aceste 2 max heapuri sunt echilibrate iar la fiecare insert ne punem intrebarea unde sa il inseram – Daca elementul este mai mare decat ce avem in max heap il inseram in min heap, altfel il inseram in max heap iar daca max heap are prea multe elemente le putem muta in min heap ca sa pastram constant valabila proprietatea maxHeap.size() – minHeap.size() <= 1, proprietate care ne garanteaza proprietatile anterioare despre jumatati.
